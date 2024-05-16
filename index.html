@@ -11,7 +11,7 @@
         function receberDados() {
             const urlParams = new URLSearchParams(window.location.search);
             const dados = urlParams.get('dados');
-            
+            alert(urlParams);
             if (dados !== null) {
                 atualizarDados(dados);
             }
