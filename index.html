@@ -7,7 +7,16 @@
         function atualizarDados(dados) {
             document.getElementById('dados').innerText = dados;
         }
-    
+        function receberDados() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const dados = urlParams.get('dados');
+            
+            if (dados !== null) {
+                const textoDados = `${dados}`;
+                atualizarDados(textoDados);
+            }
+        }
+
         function receberDados() {
             fetch('https://viniciuscostapinto.github.io/sensores/index.html', {
                 method: 'GET'
