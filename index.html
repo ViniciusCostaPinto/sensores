@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
-        function atualizarDados(temp, umid) {
-            document.getElementById('temp').innerText = temp;
-            document.getElementById('umid').innerText = umid;
+        function atualizarDados(dados) {
+            document.getElementById('dados').innerText = dados;
         }
     
         function receberDados() {
@@ -15,7 +14,7 @@
             })
             .then(response => response.json())
             .then(data => {
-                atualizarDados(data.temp, data.umid);
+                atualizarDados(data.dados);
             })
             .catch(error => console.error('Erro:', error));
         }
@@ -28,13 +27,11 @@
 </head>
 <body>
     <h1>Dados do Sensor</h1>
-    <p>Temperatura: <span id="temp"></span>°C</p>
-    <p>Umidade: <span id="umid"></span>%</p>
+    <p>Dados dos Sensores: <span id="dados"></span></p>
 
     <script>
-        function atualizarDados(temp, umid) {
-            document.getElementById('temp').innerText = temp;
-            document.getElementById('umid').innerText = umid;
+        function atualizarDados(dados) {
+            document.getElementById('dados').innerText = dados;
         }
     </script>
 </body>
