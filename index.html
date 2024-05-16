@@ -7,29 +7,18 @@
         function atualizarDados(dados) {
             document.getElementById('dados').innerText = dados;
         }
+        
         function receberDados() {
             const urlParams = new URLSearchParams(window.location.search);
             const dados = urlParams.get('dados');
             
             if (dados !== null) {
-                const textoDados = `${dados}`;
-                atualizarDados(textoDados);
+                atualizarDados(dados);
             }
-        }
-
-        function receberDados() {
-            fetch('https://viniciuscostapinto.github.io/sensores/index.html', {
-                method: 'GET'
-            })
-            .then(response => response.json())
-            .then(data => {
-                atualizarDados(data.dados);
-            })
-            .catch(error => console.error('Erro:', error));
         }
     
         // Atualizar os dados periodicamente
-        setInterval(receberDados, 10000); // Por exemplo, a cada 5 segundos
+        setInterval(receberDados, 10000); // Por exemplo, a cada 10 segundos
     </script>
 
     <title>Dados do Sensor</title>
@@ -37,11 +26,5 @@
 <body>
     <h1>Dados do Sensor</h1>
     <p>Dados dos Sensores: <span id="dados"></span></p>
-
-    <script>
-        function atualizarDados(dados) {
-            document.getElementById('dados').innerText = dados;
-        }
-    </script>
 </body>
 </html>
