@@ -3,6 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function atualizarDados(temp, umid) {
+            document.getElementById('temp').innerText = temp;
+            document.getElementById('umid').innerText = umid;
+        }
+    
+        function receberDados() {
+            fetch('URL_DO_SEU_ENDPOINT', {
+                method: 'GET'
+            })
+            .then(response => response.json())
+            .then(data => {
+                atualizarDados(data.temp, data.umid);
+            })
+            .catch(error => console.error('Erro:', error));
+        }
+    
+        // Atualizar os dados periodicamente
+        setInterval(receberDados, 10000); // Por exemplo, a cada 5 segundos
+    </script>
+
     <title>Dados do Sensor</title>
 </head>
 <body>
